@@ -41,15 +41,23 @@ class WelcomeComponent extends Component{
 
         HelloWorldService.executeHelloWorldPathService(this.props.match.params.name)
         .then(response => this.handleSuccessfulResponse(response))
-    //.catch()
+        .catch(error => this.handleErrorResponse(error))
     }
 
-    handleSuccessfulResponse(response){
+    handleSuccessfulResponse = (response) => {
 
         console.log(response)
+        this.setState( {
+                welcomeMessage : response.data.message
+            })
+    }
+
+    handleErrorResponse = (error) => {
+
+        console.log(error.response.data.message)
         this.setState( 
             () => {
-                return {welcomeMessage : response.data.message}
+                return {welcomeMessage : error.response.data.message}
             })
     }
 
