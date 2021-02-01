@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import HelloWorldService from '../../API/todo/HelloWorldService.js'
+import UpcomingTodosComponent from './UpcomingTodosComponent.jsx'
 
 class WelcomeComponent extends Component{
 
@@ -18,11 +19,7 @@ class WelcomeComponent extends Component{
                     Welcome {this.props.match.params.name} Manage your todos  <Link to="/todos">here</Link>
                 </div>
                 <div className="container">
-                    Click here to get a custom message 
-                    <button onClick={this.retrieveWelcomeMessage} className="btn btn-success">Get Welcome </button>
-                </div>
-                <div className="container">
-                    {this.state.welcomeMessage}
+                    <UpcomingTodosComponent/>
                 </div>
                {/* Manage your todos  <a href="/todos">here</a>*/}
             </div>
@@ -54,11 +51,18 @@ class WelcomeComponent extends Component{
 
     handleErrorResponse = (error) => {
 
-        console.log(error.response.data.message)
-        this.setState( 
-            () => {
-                return {welcomeMessage : error.response.data.message}
-            })
+        console.log(error.response)
+        let errorMessage = '';
+                if(error.message)
+                {
+                    errorMessage =+ error.message
+                }
+
+                if(error.response && error.response.data)
+                {
+                    errorMessage =+ error.response.data.message
+                }
+        this.setState({welcomeMessage : errorMessage})
     }
 
 }

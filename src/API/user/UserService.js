@@ -1,17 +1,11 @@
 import axios from "axios"
 import { API_URL } from "../../Constants"
 
-class TodoService{
+class UserService{
 
-    getAllTodos(name)
+    registerUser(user)
     {
-        return axios.get(`${API_URL}/users/${name}/todos`)
-        //console.log("In the Hello World Service")
-    }
-
-    getUpcomingTodos(name)
-    {
-        return axios.get(`${API_URL}/users/${name}/upcomingtodos`)
+        return axios.post(`${API_URL}/register`, user)
         //console.log("In the Hello World Service")
     }
 
@@ -43,4 +37,4 @@ class TodoService{
 
 }
 
-export default new TodoService()
+export default new UserService()

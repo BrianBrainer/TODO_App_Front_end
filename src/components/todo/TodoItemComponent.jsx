@@ -13,13 +13,13 @@ class TodoItemComponent extends Component{
             description : "",
             date : "",
             completed : false
-
+ 
         }
     }
 
     componentDidMount(){
 
-    if(this.state.id === -1)
+    if(this.state.id === "-1")
     {
         return
     }
@@ -47,28 +47,24 @@ class TodoItemComponent extends Component{
         console.log(this.state.id)
         console.log("ID above")
         let user = AuthenticationService.getUsername()
+        let todo = {
+            id : values.id,
+            description : values.description,
+            date : values.date,
+            completed : false,
+            username : user
+        }
         if(this.state.id === "-1")
         {
             console.log("In create")
-            TodoService.createTodo(user, {
-                id : values.id,
-                description : values.description,
-                date : values.date,
-                completed : false,
-                username : user
-            })
+            todo.id=null
+            TodoService.createTodo(user, todo )
             .then(() => this.props.history.push("/todos"))
         }
         else
         {
             console.log("In Update")
-            TodoService.updateExistingTodo(user, values.id, {
-                id : values.id,
-                description : values.description,
-                date : values.date,
-                completed : values.completed,
-                username : user
-            })
+            TodoService.updateExistingTodo(user, values.id, todo)
             .then(() => this.props.history.push("/todos"))
         }
     }

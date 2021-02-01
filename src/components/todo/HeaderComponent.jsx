@@ -13,6 +13,8 @@ class HeaderComponent extends Component{
                     <div>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                         <div className="navbar-brand">RYAN T</div>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
                         <ul className="navbar-nav">
                             {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/Ryan">Home</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/todos">To-Dos</Link></li>}
@@ -21,6 +23,7 @@ class HeaderComponent extends Component{
                             {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                         </ul>
+                        </div>
                     </nav>
                     </div>
                 </header>

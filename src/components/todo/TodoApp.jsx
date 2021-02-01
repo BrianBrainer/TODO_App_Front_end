@@ -9,6 +9,7 @@ import ToDoListComponent from './ToDoListComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
 import TodoItemComponent from './TodoItemComponent.jsx'
+import RegistrationComponent from './RegistrationComponent.jsx'
 
 
 class TodoApp extends Component{
@@ -21,6 +22,7 @@ class TodoApp extends Component{
                             <Route path="/" exact component={LoginComponent}/>   
                             <Route path="/login" component={LoginComponent}/>
                             <Route path="/logout" component={LogOutComponent}/>
+                            <Route path="/register" component={RegistrationComponent}/>
                             <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                             <AuthenticatedRoute path="/todos" exact component={ToDoListComponent}/>
                             <AuthenticatedRoute path="/todos/:id" exact component={TodoItemComponent}/>
