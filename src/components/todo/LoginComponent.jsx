@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
+import './LoginComponent.css'
 
 class LoginComponent extends Component{
 
@@ -93,23 +94,23 @@ class LoginComponent extends Component{
     render() {
         return(
             <div>
-                <h1>Login</h1>
-                <div className="container">
+                <div className="login">
                     {/*<ShowInvalidCredentials loginError={this.state.loginError}/>
                     <ShowSuccesfulLoginMessage loginSuccess={this.state.loginSuccess}/>
                     <ShowLoginMessage loginSuccess={this.state.loginSuccess} loginError={this.state.loginError}/>
                     {this.state.loginError && <div>Login error</div>} If true then show the second part*/}
                     {this.state.loginSuccess && <div>Login Successful</div>}
                     {this.state.loginError && <div className="alert alert-warning">Login error</div>}
-                <label>Username:</label> 
-                <input type="text" name="username" value={this.state.username} onChange={this.handleLoginChange} />
-                <label>Password: </label> 
-                <input type="password" name="password" value={this.state.password} onChange={this.handleLoginChange}/>
-            </div>
-            <div className="container"></div>
-             <button className="btn btn-success"onClick={this.loginClicked}>Login</button>
-             &nbsp;
-             <button className="btn btn-success"onClick={this.registerClicked}>Register</button>
+                
+                
+                    <input type="text" name="username" value={this.state.username} onChange={this.handleLoginChange} placeholder="Username" />
+
+                    <input type="password" name="password" value={this.state.password} onChange={this.handleLoginChange} placeholder="Password"/>
+                
+            
+             <button className="loginBtn"onClick={this.loginClicked}>Login</button>
+             <button className="registerBtn"onClick={this.registerClicked}>Register</button>
+             </div>
             </div>
         )
     }

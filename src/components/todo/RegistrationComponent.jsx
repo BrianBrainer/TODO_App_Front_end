@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import UserService from '../../API/user/UserService'
+import './RegistrationComponent.css'
 
 class RegistrationComponent extends Component{
 
@@ -46,7 +47,7 @@ class RegistrationComponent extends Component{
             <div className="container">
                 {/*<div>Todo Component for id {this.props.match.params.id}</div>*/}
                 <div className="container">
-                    <h1>Todo Item</h1>
+                    <h1>Register</h1>
                     <Formik 
                         initialValues={this.state}
                         onSubmit={this.onSubmit}
@@ -59,27 +60,18 @@ class RegistrationComponent extends Component{
                                 <Form>
                                     <ErrorMessage name="username" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="password" component="div" className="alert alert-warning"/>
-                                    <fieldset className="form-group">
-                                        <label>First Name: </label>
-                                        <Field className="form-control" type="text" name="firstName"/>
+                                    <fieldset className="nameDetails">
+                                        <Field className="form-control" type="text" name="firstName" placeholder="First Name"/>
+                                        <Field className="form-control" type="text" name="lastName" placeholder="Last Name"/>
                                     </fieldset>
-                                    <fieldset className="form-group">
-                                    <label>Last Name: </label>
-                                        <Field className="form-control" type="text" name="lastName"/>
+                                    <fieldset className="usernameDetails">
+                                        <Field className="form-control" type="text" name="username" placeholder="Username"/>
                                     </fieldset>
-                                    <fieldset className="form-group">
-                                        <label>Username: </label>
-                                        <Field className="form-control" type="text" name="username"/>
+                                    <fieldset className="passwordDetails">
+                                        <Field className="form-control" type="password" name="password" placeholder="Password"/>
+                                        <Field className="form-control" type="password" name="confirmPassword" placeholder="Confirm Password"/>
                                     </fieldset>
-                                    <fieldset className="form-group">
-                                        <label>Password</label>
-                                        <Field className="form-control" type="password" name="password"/>
-                                    </fieldset>
-                                    <fieldset className="form-group">
-                                        <label>Confirm Password</label>
-                                        <Field className="form-control" type="password" name="confirmPassword"/>
-                                    </fieldset>
-                                    <button className="btn btn-success" type="submit">Save </button>
+                                    <button className="registerPageBtn" type="submit">Register</button>
                                 </Form>
                             )
                         }

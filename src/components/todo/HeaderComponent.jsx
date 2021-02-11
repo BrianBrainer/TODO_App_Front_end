@@ -12,7 +12,7 @@ class HeaderComponent extends Component{
                 <header>
                     <div>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                        <div className="navbar-brand">RYAN T</div>
+                        <div className="navbar-brand">2DO</div>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
                         <ul className="navbar-nav">
