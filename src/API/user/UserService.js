@@ -5,6 +5,7 @@ class UserService{
 
     registerUser(user)
     {
+        console.log("User to register: ", user)
         return axios.post(`${API_URL}/register`, user)
         //console.log("In the Hello World Service")
     }
@@ -25,6 +26,16 @@ class UserService{
     {
         return axios.put(`${API_URL}/users/${name}/todos/${id}`, todo)
         //console.log("In the Hello World Service")
+    }
+
+    checkIfUsernameExists(username)
+    {
+        return axios.get(`${API_URL}/register/validateUsername/${username}`)
+    }
+
+    checkIfEmailExists(email)
+    {
+        return axios.get(`${API_URL}/register/validateEmail/${email}`)
     }
 
     createTodo(name, todo)

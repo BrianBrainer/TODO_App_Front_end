@@ -14,10 +14,7 @@ class WelcomeComponent extends Component{
     render() {
         return(
             <div>
-                <h1>Welcome!</h1>
-                <div className="container">
-                    Welcome {this.props.match.params.name} Manage your todos  <Link to="/todos">here</Link>
-                </div>
+                <h1>Welcome {this.props.match.params.name}!</h1>
                 <div className="container">
                     <UpcomingTodosComponent/>
                 </div>

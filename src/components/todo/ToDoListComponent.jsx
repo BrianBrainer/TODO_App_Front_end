@@ -78,7 +78,7 @@ class ToDoListComponent extends Component{
                     <h1>Tasks to Do</h1>
                     {this.state.DeleteMessage && <div className="alert alert-success">{this.state.DeleteMessage}</div>}
                     <div className="container">
-                        <table className="table">
+                        <table className="todoTable">
                             <thead>
                                 <tr>
                                     <th>Description</th>
