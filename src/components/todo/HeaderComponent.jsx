@@ -4,8 +4,18 @@ import {withRouter} from 'react-router'
 import AuthenticationService from './AuthenticationService.js'
 
 class HeaderComponent extends Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+
+        }
+    }
+
+
     render() {
 
+        console.log("props: ", this.props)
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
         console.log("Is user logged in: " + isUserLoggedIn)
         return( 
@@ -21,7 +31,19 @@ class HeaderComponent extends Component{
                         </ul>
                         <ul className="navbar-nav navbar-collapse justify-content-end">
                             {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
-                            {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
+                            {isUserLoggedIn && <li>
+                                <div className="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {AuthenticationService.getUsername()}
+                                </button>
+                                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">My Account</a>
+                                    <div class="dropdown-divider"></div>
+                                    <Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                    </Link>
+                                </div>
+                                </div></li>}
                         </ul>
                         </div>
                     </nav>

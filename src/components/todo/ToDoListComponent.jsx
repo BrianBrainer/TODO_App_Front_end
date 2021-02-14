@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TodoService from '../../API/todo/TodoService'
 import AuthenticationService from './AuthenticationService'
 import Moment from 'moment'
+import './ToDoListComponent.css'
 
 class ToDoListComponent extends Component{
 
@@ -79,7 +80,7 @@ class ToDoListComponent extends Component{
                     {this.state.DeleteMessage && <div className="alert alert-success">{this.state.DeleteMessage}</div>}
                     <div className="container">
                         <table className="todoTable">
-                            <thead>
+                            <thead className="todoTableHeader">
                                 <tr>
                                     <th>Description</th>
                                     <th>Completed?</th>
@@ -111,7 +112,7 @@ class ToDoListComponent extends Component{
                             </tbody>
                         </table>
                         <div className="row">
-                            <button className="btn btn-success" onClick={this.addButtonClick}>Add</button>
+                            <button className="addTodoBtn" onClick={this.addButtonClick}>+</button>
                         </div>
                     </div>
                 </div>

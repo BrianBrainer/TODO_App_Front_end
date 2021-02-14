@@ -40,13 +40,20 @@ class UpcomingTodosComponent extends Component{
             })
     }
 
+    calculateTimeRemaining(todoDate)
+    {
+        var remainingTime = Moment(todoDate).diff(Moment(new Date()), 'days') > 0 ? Moment(todoDate).diff(Moment(new Date()), 'days')+" day(s)" : Moment(todoDate).diff(Moment(new Date()), 'hours') + " hour(s)"
+        return remainingTime
+        //Moment(upcomingTodo.date).diff(Moment(new Date()), 'days')
+    }
+
     render() {
         return (
 
             
             <div className="container">
-                   <table class="table">
-                        <thead class="thead-dark">
+                   <table>
+                        <thead>
                             <tr>
                                 <th scope="col" colspan="3">Upcoming Todos</th>
                             </tr>
@@ -57,7 +64,7 @@ class UpcomingTodosComponent extends Component{
                                 <tr>
                                     <td>{upcomingTodo.description}</td>
                                     <td>{Moment(upcomingTodo.date).format('YYYY-MM-DD')}</td>
-                                    <td>Due in {Moment(upcomingTodo.date).diff(Moment(new Date()), 'days')} days</td>
+                                    <td>Due in {this.calculateTimeRemaining(upcomingTodo.date)}</td>
                                 </tr> )
                             }
                         </tbody>

@@ -1,0 +1,23 @@
+.todoTable, tr, td  {
+    border: 1px solid;
+
+}
+
+th{
+
+    background-color: #343A40;
+    color: white;
+}
+
+.addTodoBtn {
+    float:right;
+    margin-top: 10px;
+    margin-left: 93%;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    height: 50px;
+    width: 50px;
+    background-color:  #343A40;
+    border-radius: 50%;
+}
